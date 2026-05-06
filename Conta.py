@@ -36,7 +36,7 @@ class Conta :
         global self.cliente
         try:
             with open ("dados.json", "r") as arquivo:
-            self.cliente = json.load(arquivo)
+                self.cliente = json.load(arquivo)
 
 
         except FileNotFoundError :

@@ -1,4 +1,6 @@
 from Conta import Conta
+from Conta_corrente import ContaCorrente
+
 
 def exibir_menu():
     print("\n" + "="*45)
