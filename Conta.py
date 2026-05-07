@@ -1,7 +1,8 @@
 import json
 
 class Conta : 
-    def __init__(self, cliente):
+    def __init__(self, cliente, numero):
+        self.numero = numero 
         self.__saldo = 0.0
         self.cliente = cliente
        
@@ -23,23 +24,30 @@ class Conta :
 
 
     def transferir(self, valor, conta_destino):
-        if valor <= self.__saldo:
-            self.__saldo- valor
+        if self.sacar(valor):
+            conta_destino.depositar(valor)
+            print ("Transferência realizada ! ")
+
+        else:
+            print("Saldo insuficiente para transação .")
 
 
-    def salvar_informacoes ():
-        with open ("dados.json", "w") as arquivo:
-           json.dump(self.cliente, arquivo) 
+    def salvar_informacoes (self):
+        try:
+            with open ("dados.json", "w") as arquivo:
+                json.dump(self.cliente, arquivo) 
+        
+        except FileNotFoundError :
+            return []   
 
 
     def carregar_dados():
-        global self.cliente
         try:
             with open ("dados.json", "r") as arquivo:
-                self.cliente = json.load(arquivo)
+                return json.load(arquivo)
 
 
         except FileNotFoundError :
-            self.cliente=[]
+            return []
             
 

@@ -6,6 +6,6 @@ class ContaPoupanca(Conta) :
 
 
     def reder_juros():
-        self._saldo = self._saldo * 1.01
+        saldo_com_juros = self._saldo * 1.01
 
-        print(f"Seu saldo rendeu !! Com o juros da conta seu saldo rendeu {self._saldo} !")
+        print(f"Seu saldo rendeu !! Com o juros da conta seu saldo rendeu {saldo_com_juros} !")
